@@ -4,11 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.ArrayList;
 
-public class prepView2 extends AppCompatActivity {
+public class prepView2 extends AppCompatActivity implements RecyclerViewInterface{
 
     ArrayList<ListModel> listModels = new ArrayList<>();
     int[] listImages = {R.drawable.ic_baseline_fastfood_24, R.drawable.ic_baseline_local_drink_24, R.drawable.ic_baseline_change_circle_24, R.drawable.ic_baseline_qr_code_scanner_24};
@@ -18,7 +19,7 @@ public class prepView2 extends AppCompatActivity {
         setContentView(R.layout.activity_prep_view2);
         RecyclerView recyclerview = findViewById(R.id.mRecyclerView);
         setListModels();
-        Lists_RecyclerViewAdapter adapter = new Lists_RecyclerViewAdapter(this, listModels);
+        Lists_RecyclerViewAdapter adapter = new Lists_RecyclerViewAdapter(this, listModels, this);
         recyclerview.setAdapter(adapter);
         recyclerview.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -28,5 +29,13 @@ public class prepView2 extends AppCompatActivity {
         for (int i = 0; i<listNames.length; i++){
     listModels.add(new ListModel(listNames[i],listImages[i]));
         }
+    }
+
+    @Override
+    public void onItemClick(int position) {
+Intent intent = new Intent(prepView2.this, Categories.class);
+intent.putExtra("Name", listModels.get(position).getListName());
+
+startActivity(intent);
     }
 }

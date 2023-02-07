@@ -34,7 +34,7 @@ public class prepView extends AppCompatActivity {
 
         myListView = (ListView) findViewById(R.id.listview1);
         myListView.setAdapter(myArrayadapter);
-        mRef = FirebaseDatabase.getInstance().getReference();
+        mRef = FirebaseDatabase.getInstance().getReference("Prep").child("Sauces");
         mRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {

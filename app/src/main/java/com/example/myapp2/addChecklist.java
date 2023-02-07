@@ -45,16 +45,18 @@ public class addChecklist extends AppCompatActivity {
                 EditText editTextItem2 = (EditText) findViewById(R.id.Item2);
                 EditText editTextItem3 = (EditText) findViewById(R.id.Item3);
                 EditText editTextItem4 = (EditText) findViewById(R.id.Item4);
+                EditText editTextItem5 = (EditText) findViewById(R.id.Item5);
 
                 String child = editTextList.getText().toString();
-                myRef = database.getReference("Lists").child(child);
+                myRef = database.getReference("Prep").child(child);
 
 
                 myRef.child("Name").setValue(editTextList.getText().toString());
-                myRef.child("Item1").setValue(editTextItem1.getText().toString());
-                myRef.child("Item2").setValue(editTextItem2.getText().toString());
-                myRef.child("Item3").setValue(editTextItem3.getText().toString());
-                myRef.child("Item4").setValue(editTextItem4.getText().toString());
+                myRef.child("1").setValue(editTextItem1.getText().toString());
+                myRef.child("2").setValue(editTextItem2.getText().toString());
+                myRef.child("3").setValue(editTextItem3.getText().toString());
+                myRef.child("4").setValue(editTextItem4.getText().toString());
+                myRef.child("5").setValue(editTextItem5.getText().toString());
             }
         });
     }
