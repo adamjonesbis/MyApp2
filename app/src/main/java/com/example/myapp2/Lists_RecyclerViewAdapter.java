@@ -63,6 +63,8 @@ private final RecyclerViewInterface recyclerViewInterface;
 
                         if (pos !=RecyclerView.NO_POSITION){
                             recyclerViewInterface.onItemClick(pos);
+
+
                         }
                     }
                 }

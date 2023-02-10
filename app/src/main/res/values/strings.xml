@@ -3,9 +3,9 @@
 
     <string name="list_name">Meats</string>
     <string-array name="lists_full_txt">
-        <item>Meats</item>
-        <item>Sauces</item>
-        <item>Dressings</item>
-        <item>Drinks</item>
+        <item>Kimchi</item>
+        <item>Gucii</item>
+        <item>Honey Soy Garlic</item>
+        <item>Pickles</item>
     </string-array>
 </resources>
