@@ -61,8 +61,8 @@
             android:layout_gravity="fill"
             android:layout_margin="5sp"
             android:background="#ffffff"
-            android:drawableLeft="@drawable/ic_baseline_email_24"
-            android:text="Categories"
+            android:drawableLeft="@drawable/baseline_menu_book_24"
+            android:text="Recipes"
             android:textSize="18sp" />
 
         <Button

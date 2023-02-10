@@ -15,7 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.sql.Array;
 import java.util.ArrayList;
-
+//See references.txt to get see where code was taken from
 public class Categories2 extends AppCompatActivity {
 
     RecyclerView recyclerview;

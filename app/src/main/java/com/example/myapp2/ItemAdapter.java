@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-
+//See references.txt to get see where code was taken from
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder2>{
 Context context;
 ArrayList<Item> list;

@@ -1,7 +1,7 @@
 package com.example.myapp2;
 
 
-
+//See references.txt to get see where code was taken from
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,12 +48,14 @@ private final RecyclerViewInterface recyclerViewInterface;
 
         ImageView imageView;
         TextView tvName;
+        TextView tvDescription;
 
         public MyViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
 
             imageView = itemView.findViewById(R.id.imageView2);
             tvName = itemView.findViewById(R.id.textview);
+            tvDescription = itemView.findViewById(R.id.tvDescription);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

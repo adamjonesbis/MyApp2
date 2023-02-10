@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-
+//See references.txt to get see where code was taken from
 public class HomeActivity extends AppCompatActivity {
 
     private Button btn6;

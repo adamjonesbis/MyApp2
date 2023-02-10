@@ -17,7 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
+//See references.txt to get see where code was taken from
 public class MainActivity extends AppCompatActivity {
 
     TextView createNewAccount;

@@ -8,11 +8,11 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.ArrayList;
-
+//See references.txt to get see where code was taken from
 public class prepView2 extends AppCompatActivity implements RecyclerViewInterface{
 
     ArrayList<ListModel> listModels = new ArrayList<>();
-    int[] listImages = {R.drawable.ic_baseline_fastfood_24, R.drawable.ic_baseline_local_drink_24, R.drawable.ic_baseline_change_circle_24, R.drawable.ic_baseline_qr_code_scanner_24};
+    int[] listImages = {R.drawable.baseline_menu_book_24,R.drawable.baseline_menu_book_24,R.drawable.baseline_menu_book_24,R.drawable.baseline_menu_book_24,R.drawable.baseline_menu_book_24,R.drawable.baseline_menu_book_24,R.drawable.baseline_menu_book_24,R.drawable.baseline_menu_book_24};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +25,9 @@ public class prepView2 extends AppCompatActivity implements RecyclerViewInterfac
     }
     private void setListModels(){
         String[] listNames = getResources().getStringArray(R.array.lists_full_txt);
-
+        String[] listDescriptions = getResources().getStringArray(R.array.lists_full_des);
         for (int i = 0; i<listNames.length; i++){
-    listModels.add(new ListModel(listNames[i],listImages[i]));
+    listModels.add(new ListModel(listNames[i],listImages[i],listDescriptions[i]));
         }
     }
 
@@ -35,6 +35,7 @@ public class prepView2 extends AppCompatActivity implements RecyclerViewInterfac
     public void onItemClick(int position) {
 Intent intent = new Intent(prepView2.this, Categories.class);
 intent.putExtra("Name", listModels.get(position).getListName());
+intent.putExtra("Description",listModels.get(position).getDescription());
 
 startActivity(intent);
     }

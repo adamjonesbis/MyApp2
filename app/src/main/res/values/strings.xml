@@ -4,8 +4,24 @@
     <string name="list_name">Meats</string>
     <string-array name="lists_full_txt">
         <item>Kimchi</item>
-        <item>Gucii</item>
-        <item>Honey Soy Garlic</item>
+        <item>Gucci</item>
+        <item>Maple</item>
         <item>Pickles</item>
+        <item>Mayo Mix</item>
+        <item>HSG</item>
+        <item>BBQ</item>
+        <item>Slaw</item>
+    </string-array>
+
+    <string name="list_recipe">Recipe</string>
+    <string-array name="lists_full_des">
+        <item>This is the recipe for kimchi</item>
+        <item>This is the recipe for Gucci</item>
+        <item>This is the recipe for Maple</item>
+        <item>This is the recipe for Pickles</item>
+        <item>This is the recipe for Mayo Mix</item>
+        <item>This is the recipe for HSG</item>
+        <item>This is the recipe for BBQ</item>
+        <item>This is the recipe for Slaw</item>
     </string-array>
 </resources>

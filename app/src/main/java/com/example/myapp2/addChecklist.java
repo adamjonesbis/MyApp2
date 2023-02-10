@@ -19,7 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import android.view.View.OnClickListener;
-
+//See references.txt to get see where code was taken from
 public class addChecklist extends AppCompatActivity {
 
     FirebaseDatabase database;
