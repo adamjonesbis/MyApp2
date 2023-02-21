@@ -29,4 +29,7 @@ public class DataClass {
     private String dataDesc;
     private String dataLang;
     private String dataImage;
+
+    public DataClass() {
+    }
 }

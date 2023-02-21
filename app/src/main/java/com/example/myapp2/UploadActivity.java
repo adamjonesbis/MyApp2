@@ -108,7 +108,7 @@ public class UploadActivity extends AppCompatActivity {
         String lang = uploadLang.getText().toString();
         DataClass dataClass = new DataClass(title, desc, lang, imageURL);
 
-        FirebaseDatabase.getInstance().getReference("Prep").child(title)
+        FirebaseDatabase.getInstance().getReference("Android tutorials12    123").child(title)
                 .setValue(dataClass).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
