@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 //See references.txt to get see where code was taken from
+//https://www.youtube.com/watch?v=7GPUpvcU1FE&ab_channel=PracticalCoding - recycler view interface to new activty
+//https://www.youtube.com/watch?v=Mc0XT58A1Z4&ab_channel=PracticalCoding- recycler view
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder2>{
 Context context;
 ArrayList<Item> list;

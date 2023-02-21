@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import android.view.View.OnClickListener;
 //See references.txt to get see where code was taken from
+//https://www.youtube.com/watch?v=F71ON3F97jE&ab_channel=HelloCoders - adding data to firebase
 public class addChecklist extends AppCompatActivity {
 
     FirebaseDatabase database;

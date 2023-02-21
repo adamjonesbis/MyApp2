@@ -18,6 +18,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 //See references.txt to get see where code was taken from
+//https://www.youtube.com/watch?v=JAUlEZrkpRk&t=137s&ab_channel=TechnicalSkillz -login/register
+//https://www.youtube.com/watch?v=gaykE36N7PY&ab_channel=TechnicalSkillz - login/register
 public class MainActivity extends AppCompatActivity {
 
     TextView createNewAccount;

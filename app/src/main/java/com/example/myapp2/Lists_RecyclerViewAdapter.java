@@ -13,7 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-
+//https://www.youtube.com/watch?v=7GPUpvcU1FE&ab_channel=PracticalCoding - recycler view interface to new activty
+//https://www.youtube.com/watch?v=Mc0XT58A1Z4&ab_channel=PracticalCoding- recycler view
 public class Lists_RecyclerViewAdapter extends RecyclerView.Adapter<Lists_RecyclerViewAdapter.MyViewHolder> {
 private final RecyclerViewInterface recyclerViewInterface;
    Context context;
