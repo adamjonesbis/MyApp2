@@ -9,6 +9,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.SearchView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +28,7 @@ public class MainActivity2 extends AppCompatActivity {
  DatabaseReference databaseReference;
  ValueEventListener eventListener;
 
+    ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,9 @@ public class MainActivity2 extends AppCompatActivity {
 
         fab = findViewById(R.id.fab);
         recyclerView = findViewById(R.id.recyclerView);
+
+
+
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(MainActivity2.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -57,9 +62,9 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 dataList.clear();
-                for (DataSnapshot itemSnapshot: snapshot.getChildren()){
+                for (DataSnapshot itemSnapshot : snapshot.getChildren()) {
                     DataClass dataClass = itemSnapshot.getValue(DataClass.class);
-
+                    dataClass.setKey(itemSnapshot.getKey());
                     dataList.add(dataClass);
                 }
                 adapter.notifyDataSetChanged();
@@ -69,9 +74,10 @@ public class MainActivity2 extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-dialog.dismiss();
+                dialog.dismiss();
             }
         });
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,5 +86,5 @@ dialog.dismiss();
                 startActivity(intent);
             }
         });
-    }
-}
+
+    }}

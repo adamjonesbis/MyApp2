@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blueBlack">#111f28</color>
     <color name="tanAccent">#e3cdb3</color>
+    <color name="red">#c70000</color>
 </resources>

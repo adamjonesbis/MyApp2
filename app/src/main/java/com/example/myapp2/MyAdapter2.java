@@ -47,32 +47,35 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder3> {
                 intent.putExtra("Image", dataList.get(holder.getAdapterPosition()).getDataImage());
                 intent.putExtra("Description", dataList.get(holder.getAdapterPosition()).getDataDesc());
                 intent.putExtra("Title", dataList.get(holder.getAdapterPosition()).getDataTitle());
-
+                intent.putExtra("key", dataList.get(holder.getAdapterPosition()).getKey());
+                intent.putExtra("Language", dataList.get(holder.getAdapterPosition()).getDataLang());
                 context.startActivity(intent);
             }
         });
-}
+    }
 
     @Override
     public int getItemCount() {
+
         return dataList.size();
     }
 
 
     class MyViewHolder3 extends RecyclerView.ViewHolder {
-    ImageView recImage;
-    TextView recTitle, recLang, recDesc;
-    CardView recCard;
+        ImageView recImage;
+        TextView recTitle, recDesc, recLang;
+        CardView recCard;
 
-    public MyViewHolder3(@NonNull View itemView) {
-        super(itemView);
-        recImage = itemView.findViewById(R.id.recImage);
-        recCard = itemView.findViewById(R.id.recCard);
-        recDesc = itemView.findViewById(R.id.recDesc);
-        recLang = itemView.findViewById(R.id.recLang);
-        recTitle = itemView.findViewById(R.id.recTitle);
-    }}}
+        public MyViewHolder3(@NonNull View itemView) {
+            super(itemView);
+            recImage = itemView.findViewById(R.id.recImage);
+            recCard = itemView.findViewById(R.id.recCard);
+            recDesc = itemView.findViewById(R.id.recDesc);
+            recLang = itemView.findViewById(R.id.recLang);
+            recTitle = itemView.findViewById(R.id.recTitle);
+        }
+    }
 
-
+}
 
 

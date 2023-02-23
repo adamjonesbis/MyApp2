@@ -27,12 +27,15 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.text.DateFormat;
+import java.util.Calendar;
+
 public class UploadActivity extends AppCompatActivity {
 
     ImageView uploadImage;
     Button saveButton;
     EditText uploadTopic, uploadDesc, uploadLang;
-    String imageURL;
+    String imageUrl;
     Uri uri;
 
     @Override
@@ -91,7 +94,7 @@ public class UploadActivity extends AppCompatActivity {
                 Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
                 while (!uriTask.isComplete());
                 Uri urlImage = uriTask.getResult();
-                imageURL = urlImage.toString();
+                imageUrl = urlImage.toString();
                 uploadData();
                 dialog.dismiss();
             }
@@ -106,9 +109,11 @@ public class UploadActivity extends AppCompatActivity {
         String title = uploadTopic.getText().toString();
         String desc = uploadDesc.getText().toString();
         String lang = uploadLang.getText().toString();
-        DataClass dataClass = new DataClass(title, desc, lang, imageURL);
 
-        FirebaseDatabase.getInstance().getReference("Android tutorials12    123").child(title)
+        DataClass dataClass = new DataClass(title, desc, lang, imageUrl);
+
+        String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+        FirebaseDatabase.getInstance().getReference("Android tutorials").child(title)
                 .setValue(dataClass).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
