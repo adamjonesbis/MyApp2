@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- code from https://www.youtube.com/watch?v=DWIGAkYkpg8&ab_channel=AndroidKnowledge  -->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:padding="20dp"

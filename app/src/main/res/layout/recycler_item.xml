@@ -12,7 +12,7 @@
     android:layout_marginVertical="10dp"
     app:cardCornerRadius="20dp"
     app:cardElevation="8dp">
-
+    <!-- code from https://www.youtube.com/watch?v=DWIGAkYkpg8&ab_channel=AndroidKnowledge  -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
-
+// code from https://www.youtube.com/watch?v=DWIGAkYkpg8&ab_channel=AndroidKnowledge
 public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder3> {
 
     private Context context;

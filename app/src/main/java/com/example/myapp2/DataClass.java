@@ -1,7 +1,7 @@
 package com.example.myapp2;
 
 public class DataClass {
-
+    // code from https://www.youtube.com/watch?v=DWIGAkYkpg8&ab_channel=AndroidKnowledge
     private String dataTitle;
     private String dataDesc;
     private String dataLang;

@@ -35,7 +35,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class UploadActivity extends AppCompatActivity {
-
+    //date picker from https://www.youtube.com/watch?v=6UnxDgq_bLw&ab_channel=CodingWithMe
     ImageView uploadImage;
     Button saveButton;
     EditText uploadTopic, uploadDesc1, uploadLang;

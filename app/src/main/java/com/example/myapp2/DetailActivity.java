@@ -18,7 +18,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.security.Key;
-
+// code from https://www.youtube.com/watch?v=DWIGAkYkpg8&ab_channel=AndroidKnowledge
 public class DetailActivity extends AppCompatActivity {
     TextView detailDesc, detailTitle, detailLang;
     ImageView detailImage;

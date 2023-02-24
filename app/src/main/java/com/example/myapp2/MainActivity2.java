@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
+// code from https://www.youtube.com/watch?v=DWIGAkYkpg8&ab_channel=AndroidKnowledge
 public class MainActivity2 extends AppCompatActivity {
  FloatingActionButton fab;
  RecyclerView recyclerView;

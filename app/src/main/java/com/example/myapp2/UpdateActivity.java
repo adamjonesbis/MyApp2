@@ -9,11 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -30,10 +32,13 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class UpdateActivity extends AppCompatActivity {
-
+// code from https://www.youtube.com/watch?v=DWIGAkYkpg8&ab_channel=AndroidKnowledge
+    //date picker from https://www.youtube.com/watch?v=6UnxDgq_bLw&ab_channel=CodingWithMe
     ImageView updateImage;
     Button updateButton;
     EditText updateDesc, updateTitle, updateLang;
@@ -43,6 +48,8 @@ public class UpdateActivity extends AppCompatActivity {
     Uri uri;
     DatabaseReference databaseReference;
     StorageReference storageReference;
+    DatePickerDialog datePickerDialog;
+    Calendar calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +61,33 @@ public class UpdateActivity extends AppCompatActivity {
         updateImage = findViewById(R.id.updateImage);
         updateLang = findViewById(R.id.updateLang);
         updateTitle = findViewById(R.id.updateTitle);
+
+        Calendar calendar=Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, month);
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                updateCalendar();
+
+            } private void updateCalendar(){
+                String Format= "MM/dd/yy";
+                SimpleDateFormat sdf = new SimpleDateFormat(Format, Locale.ENGLISH);
+
+                updateDesc.setText(sdf.format(calendar.getTime()));
+            }
+        };
+        updateDesc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                new DatePickerDialog(UpdateActivity.this, date, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                        calendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
 
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
