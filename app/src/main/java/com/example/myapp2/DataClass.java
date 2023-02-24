@@ -6,16 +6,16 @@ public class DataClass {
     private String dataDesc;
     private String dataLang;
     private String dataImage;
-
+    private String Key;
     public String getKey() {
-        return key;
+        return Key;
     }
 
     public void setKey(String key) {
-        this.key = key;
+        this.Key = Key;
     }
 
-    private String key;
+
 
 
 

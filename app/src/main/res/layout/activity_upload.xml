@@ -25,14 +25,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Upload Data"
+                android:text="Upload Prep"
                 android:textSize="30sp"
                 android:textAlignment="center"
                 android:textColor="@color/blueBlack"/>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/ic_baseline_fastfood_24"
+                android:src="@drawable/index2"
                 android:id="@+id/uploadImage"
                 android:layout_marginTop="10dp"
                 android:scaleType="fitXY"/>
@@ -42,7 +42,7 @@
                 android:id="@+id/uploadTopic"
                 android:layout_marginTop="20dp"
                 android:padding="16dp"
-                android:hint="Enter topic name"
+                android:hint="Enter Prep Item"
                 android:gravity="start|center_vertical"
                 android:textColor="@color/blueBlack"/>
             <EditText
@@ -52,7 +52,11 @@
 
                 android:layout_marginTop="20dp"
                 android:padding="16dp"
-                android:hint="Enter description"
+                android:hint="Due"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:gravity="start|center_vertical"
                 android:textColor="@color/blueBlack"/>
             <EditText
@@ -62,7 +66,7 @@
 
                 android:layout_marginTop="20dp"
                 android:padding="16dp"
-                android:hint="Enter language"
+                android:hint="Additional Notes"
                 android:gravity="start|center_vertical"
                 android:textColor="@color/blueBlack"/>
             <Button

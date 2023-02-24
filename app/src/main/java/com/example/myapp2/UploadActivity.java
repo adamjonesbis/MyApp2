@@ -9,11 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -28,15 +30,19 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class UploadActivity extends AppCompatActivity {
 
     ImageView uploadImage;
     Button saveButton;
-    EditText uploadTopic, uploadDesc, uploadLang;
+    EditText uploadTopic, uploadDesc1, uploadLang;
     String imageUrl;
     Uri uri;
+    DatePickerDialog datePickerDialog;
+    Calendar calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +50,41 @@ public class UploadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_upload);
 
         uploadImage = findViewById(R.id.uploadImage);
-        uploadDesc = findViewById(R.id.uploadDesc);
+        uploadDesc1 = findViewById(R.id.uploadDesc);
         uploadTopic = findViewById(R.id.uploadTopic);
         uploadLang = findViewById(R.id.uploadLang);
         saveButton = findViewById(R.id.saveButton);
 
+        Calendar calendar=Calendar.getInstance();
+      DatePickerDialog.OnDateSetListener date= new DatePickerDialog.OnDateSetListener() {
+          @Override
+          public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+              calendar.set(Calendar.YEAR, year);
+              calendar.set(Calendar.MONTH, month);
+              calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+              updateCalendar();
+
+          } private void updateCalendar(){
+              String Format= "MM/dd/yy";
+              SimpleDateFormat sdf = new SimpleDateFormat(Format, Locale.ENGLISH);
+
+              uploadDesc1.setText(sdf.format(calendar.getTime()));
+          }
+      };
+      uploadDesc1.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              new DatePickerDialog(UploadActivity.this, date, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                      calendar.get(Calendar.DAY_OF_MONTH)).show();
+          }
+      });
+
+
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
+
                     @Override
                     public void onActivityResult(ActivityResult result) {
                         if (result.getResultCode() == Activity.RESULT_OK){
@@ -64,6 +97,8 @@ public class UploadActivity extends AppCompatActivity {
                     }
                 }
         );
+
+
         uploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,7 +142,7 @@ public class UploadActivity extends AppCompatActivity {
     }
     public void uploadData(){
         String title = uploadTopic.getText().toString();
-        String desc = uploadDesc.getText().toString();
+        String desc = uploadDesc1.getText().toString();
         String lang = uploadLang.getText().toString();
 
         DataClass dataClass = new DataClass(title, desc, lang, imageUrl);

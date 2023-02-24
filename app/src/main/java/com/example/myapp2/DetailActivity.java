@@ -17,11 +17,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.security.Key;
+
 public class DetailActivity extends AppCompatActivity {
     TextView detailDesc, detailTitle, detailLang;
     ImageView detailImage;
-    FloatingActionButton deleteButton2, editButton;
-    String key="";
+    FloatingActionButton deleteButton2, editButton, recipeButton;
+    String Key="";
+   //int key = Integer.parseInt(key1);
     String imageUrl = "";
 
 
@@ -36,14 +39,16 @@ public class DetailActivity extends AppCompatActivity {
         deleteButton2 = findViewById(R.id.deleteButton2);
         editButton = findViewById(R.id.editButton);
         detailLang = findViewById(R.id.detailLang);
+        recipeButton = findViewById(R.id.recipeButton);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
             detailDesc.setText(bundle.getString("Description"));
             detailTitle.setText(bundle.getString("Title"));
             detailLang.setText(bundle.getString("Language"));
-            key = bundle.getString("Key");
             imageUrl = bundle.getString("Image");
+             Key = bundle.getString("Key");
+
             Glide.with(this).load(bundle.getString("Image")).into(detailImage);
         }
          deleteButton2.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +61,7 @@ public class DetailActivity extends AppCompatActivity {
                  storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                      @Override
                      public void onSuccess(Void unused) {
-                       reference.child(key).removeValue();
+                       reference.child(Key).removeValue();
                          Toast.makeText(DetailActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
                        startActivity(new Intent(getApplicationContext(), MainActivity2.class));
                        finish();
@@ -72,7 +77,14 @@ public class DetailActivity extends AppCompatActivity {
                         .putExtra("Description", detailDesc.getText().toString())
                         .putExtra("Language", detailLang.getText().toString())
                         .putExtra("Image", imageUrl)
-                        .putExtra("Key", key);
+                        .putExtra("key", Key);
+                startActivity(intent);
+            }
+        });
+        recipeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(DetailActivity.this,prepView2.class);
                 startActivity(intent);
             }
         });
