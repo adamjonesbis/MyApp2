@@ -116,7 +116,7 @@ public class UploadActivity extends AppCompatActivity {
     }
     public void saveData(){
 
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Android Images")
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image")
                 .child(uri.getLastPathSegment());
         AlertDialog.Builder builder = new AlertDialog.Builder(UploadActivity.this);
         builder.setCancelable(false);

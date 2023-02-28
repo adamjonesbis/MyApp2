@@ -28,7 +28,7 @@ public class MainActivity2 extends AppCompatActivity {
  DatabaseReference databaseReference;
  ValueEventListener eventListener;
 
-    ;
+  MyAdapter2 adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         dataList = new ArrayList<>();
 
-        MyAdapter2 adapter = new MyAdapter2(MainActivity2.this, dataList);
+        adapter = new MyAdapter2(MainActivity2.this, dataList);
         recyclerView.setAdapter(adapter);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Android tutorials");
