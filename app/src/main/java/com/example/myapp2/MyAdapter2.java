@@ -38,14 +38,14 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder3> {
         Glide.with(context).load(dataList.get(position).getDataImage()).into(holder.recImage);
         holder.recTitle.setText(dataList.get(position).getDataTitle());
         holder.recDesc.setText(dataList.get(position).getDataDesc());
-       // holder.recLang.setText(dataList.get(position).getDataLang());
+        holder.recLang.setText(dataList.get(position).getDataLang());
 
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailActivity.class);
 
-                intent.putExtra("Image", dataList.get(holder.getAdapterPosition()).getDataImage());
+               intent.putExtra("Image", dataList.get(holder.getAdapterPosition()).getDataImage());
                 intent.putExtra("Description", dataList.get(holder.getAdapterPosition()).getDataDesc());
                 intent.putExtra("Title", dataList.get(holder.getAdapterPosition()).getDataTitle());
                 intent.putExtra("Key", dataList.get(holder.getAdapterPosition()).getKey());
@@ -69,10 +69,10 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder3> {
 
         public MyViewHolder3(@NonNull View itemView) {
             super(itemView);
-            recImage = itemView.findViewById(R.id.recImage);
+          recImage = itemView.findViewById(R.id.recImage);
             recCard = itemView.findViewById(R.id.recCard);
             recDesc = itemView.findViewById(R.id.recDesc);
-           //recLang = itemView.findViewById(R.id.recLang);
+           recLang = itemView.findViewById(R.id.recLang);
             recTitle = itemView.findViewById(R.id.recTitle);
         }
     }

@@ -32,7 +32,7 @@ public class DetailActivtiy2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_detail2);
         FirebaseApp.initializeApp(this);
 
         detailDesc = findViewById(R.id.detailDesc);
@@ -63,7 +63,7 @@ public class DetailActivtiy2 extends AppCompatActivity {
                     public void onSuccess(Void unused) {
                         reference.child(key).removeValue();
                         Toast.makeText(DetailActivtiy2.this, "Deleted", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), MainActivity2.class));
+                        startActivity(new Intent(getApplicationContext(), MainActivity3.class));
                         finish();
                     }
                 });
@@ -87,6 +87,7 @@ public class DetailActivtiy2 extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(DetailActivtiy2.this,prepView2.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

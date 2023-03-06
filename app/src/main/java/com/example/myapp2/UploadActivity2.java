@@ -154,7 +154,8 @@ public class UploadActivity2 extends AppCompatActivity {
         String desc = uploadDesc1.getText().toString();
         String lang = uploadLang.getText().toString();
 
-        DataClass dataClass = new DataClass(title, desc, lang, imageUrl);
+
+        DataClass2 dataClass = new DataClass2(title, desc, lang, imageUrl);
 
         String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
         FirebaseDatabase.getInstance().getReference("Android tutorials2").child(currentDate)

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyApp2</string>
+    <string name="app_name">ShiftChef</string>
 
     <string name="list_name">Meats</string>
     <string-array name="lists_full_txt">

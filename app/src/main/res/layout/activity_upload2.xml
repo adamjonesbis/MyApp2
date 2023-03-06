@@ -23,13 +23,15 @@
             android:layout_gravity="center_horizontal"
             android:padding="20dp"
             >
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Upload Item"
-                android:textSize="30sp"
+                android:text="Add Prep"
                 android:textAlignment="center"
-                android:textColor="@color/blueBlack"/>
+                android:textColor="@color/blueBlack"
+                android:textSize="30sp" />
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -43,7 +45,7 @@
                 android:id="@+id/uploadTopic"
                 android:layout_marginTop="20dp"
                 android:padding="16dp"
-                android:hint="Enter Prep Item"
+                android:hint="Prep Item"
                 android:gravity="start|center_vertical"
                 android:textColor="@color/blueBlack"/>
             <EditText

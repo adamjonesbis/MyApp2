@@ -42,14 +42,14 @@ public class HomeActivity extends AppCompatActivity {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(HomeActivity.this,prepView2.class);
+                Intent intent=new Intent(HomeActivity.this,MainActivity2.class);
                 startActivity(intent);
             }
         });
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(HomeActivity.this,MainActivity2.class);
+                Intent intent=new Intent(HomeActivity.this,prepView2.class);
                 startActivity(intent);
             }
         });

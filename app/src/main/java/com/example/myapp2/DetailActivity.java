@@ -82,15 +82,10 @@ public class DetailActivity extends AppCompatActivity {
                         .putExtra("Image", imageUrl)
                         .putExtra("Key", key);
                 startActivity(intent);
+                finish();
             }
         });
-        recipeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(DetailActivity.this,prepView2.class);
-                startActivity(intent);
-            }
-        });
+
             }
 
 
