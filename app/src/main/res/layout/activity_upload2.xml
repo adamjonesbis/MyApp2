@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/tanAccent"
-    tools:context=".UploadActivity">
+    tools:context=".UploadActivity2">
     <!-- code from https://www.youtube.com/watch?v=DWIGAkYkpg8&ab_channel=AndroidKnowledge  -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

@@ -15,35 +15,36 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
+
 // code from https://www.youtube.com/watch?v=DWIGAkYkpg8&ab_channel=AndroidKnowledge
-public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder3> {
+public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder4> {
 
     private Context context;
-    private List<DataClass> dataList;
+    private List<DataClass2> dataList;
 
-    public MyAdapter2(Context context, List<DataClass> dataList) {
+    public MyAdapter3(Context context, List<DataClass2> dataList) {
         this.context = context;
         this.dataList = dataList;
     }
 
     @NonNull
     @Override
-    public MyViewHolder3 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item, parent, false);
-        return new MyViewHolder3(view);
+    public MyViewHolder4 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycleritem2, parent, false);
+        return new MyViewHolder4(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder3 holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder4 holder, int position) {
         Glide.with(context).load(dataList.get(position).getDataImage()).into(holder.recImage);
         holder.recTitle.setText(dataList.get(position).getDataTitle());
         holder.recDesc.setText(dataList.get(position).getDataDesc());
-       // holder.recLang.setText(dataList.get(position).getDataLang());
+        // holder.recLang.setText(dataList.get(position).getDataLang());
 
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, DetailActivity.class);
+                Intent intent = new Intent(context, DetailActivtiy2.class);
 
                 intent.putExtra("Image", dataList.get(holder.getAdapterPosition()).getDataImage());
                 intent.putExtra("Description", dataList.get(holder.getAdapterPosition()).getDataDesc());
@@ -62,21 +63,19 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder3> {
     }
 
 
-    class MyViewHolder3 extends RecyclerView.ViewHolder {
+    class MyViewHolder4 extends RecyclerView.ViewHolder {
         ImageView recImage;
         TextView recTitle, recDesc, recLang;
         CardView recCard;
 
-        public MyViewHolder3(@NonNull View itemView) {
+        public MyViewHolder4(@NonNull View itemView) {
             super(itemView);
             recImage = itemView.findViewById(R.id.recImage);
             recCard = itemView.findViewById(R.id.recCard);
             recDesc = itemView.findViewById(R.id.recDesc);
-           //recLang = itemView.findViewById(R.id.recLang);
+            //recLang = itemView.findViewById(R.id.recLang);
             recTitle = itemView.findViewById(R.id.recTitle);
         }
     }
 
 }
-
-

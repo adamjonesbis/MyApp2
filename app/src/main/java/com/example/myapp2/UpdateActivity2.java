@@ -36,8 +36,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class UpdateActivity extends AppCompatActivity {
-// code from https://www.youtube.com/watch?v=DWIGAkYkpg8&ab_channel=AndroidKnowledge
+public class UpdateActivity2 extends AppCompatActivity {
+    // code from https://www.youtube.com/watch?v=DWIGAkYkpg8&ab_channel=AndroidKnowledge
     //date picker from https://www.youtube.com/watch?v=6UnxDgq_bLw&ab_channel=CodingWithMe
     ImageView updateImage;
     Button updateButton;
@@ -54,7 +54,7 @@ public class UpdateActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update);
+        setContentView(R.layout.activity_update2);
 
         updateButton = findViewById(R.id.updateButton);
         updateDesc = findViewById(R.id.updateDesc);
@@ -83,7 +83,7 @@ public class UpdateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                new DatePickerDialog(UpdateActivity.this, date, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                new DatePickerDialog(UpdateActivity2.this, date, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
                         calendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
@@ -99,13 +99,13 @@ public class UpdateActivity extends AppCompatActivity {
                             uri = data.getData();
                             updateImage.setImageURI(uri);
                         } else {
-                            Toast.makeText(UpdateActivity.this, "No Image Selected", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UpdateActivity2.this, "No Image Selected", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
-            Glide.with(UpdateActivity.this).load(bundle.getString("Image")).into(updateImage);
+            Glide.with(UpdateActivity2.this).load(bundle.getString("Image")).into(updateImage);
             updateTitle.setText(bundle.getString("Title"));
             updateDesc.setText(bundle.getString("Description"));
             updateLang.setText(bundle.getString("Language"));
@@ -113,7 +113,7 @@ public class UpdateActivity extends AppCompatActivity {
             oldImageURL = bundle.getString("Image");
         }
         String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-        databaseReference = FirebaseDatabase.getInstance().getReference("Android tutorials").child(key);
+        databaseReference = FirebaseDatabase.getInstance().getReference("Android tutorials2").child(key);
 
         updateImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,44 +127,45 @@ public class UpdateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 saveData();
-                Intent intent = new Intent(UpdateActivity.this, MainActivity2.class);
+
+                Intent intent = new Intent(UpdateActivity2.this, MainActivity3.class);
                 startActivity(intent);
             }
         });
 
     }
-public void saveData() {
-    storageReference = FirebaseStorage.getInstance().getReference().child("Android Images").child(uri.getLastPathSegment());
+    public void saveData() {
+        storageReference = FirebaseStorage.getInstance().getReference().child("Android Images2").child(uri.getLastPathSegment());
 
-    AlertDialog.Builder builder = new AlertDialog.Builder(UpdateActivity.this);
-    builder.setCancelable(false);
-    builder.setView(R.layout.progress_layout);
-    AlertDialog dialog = builder.create();
-    dialog.show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(UpdateActivity2.this);
+        builder.setCancelable(false);
+        builder.setView(R.layout.progress_layout);
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
-    storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-        @Override
-        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-            Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
-            while (!uriTask.isComplete()) ;
-            Uri urlImage = uriTask.getResult();
-            imageUrl = urlImage.toString();
-            updateData();
-            dialog.dismiss();
-        }
-    }).addOnFailureListener(new OnFailureListener() {
-        @Override
-        public void onFailure(@NonNull Exception e) {
-            dialog.dismiss();
-        }
-    });
-}
+        storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                while (!uriTask.isComplete()) ;
+                Uri urlImage = uriTask.getResult();
+                imageUrl = urlImage.toString();
+                updateData();
+                dialog.dismiss();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                dialog.dismiss();
+            }
+        });
+    }
     public void updateData() {
         title = updateTitle.getText().toString().trim();
         desc = updateDesc.getText().toString().trim();
         lang = updateLang.getText().toString();
 
-        DataClass dataClass = new DataClass(title, desc, lang, imageUrl);
+        DataClass2 dataClass = new DataClass2(title, desc, lang, imageUrl);
 
         databaseReference.setValue(dataClass).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -172,16 +173,16 @@ public void saveData() {
                 if (task.isSuccessful()) {
                     StorageReference reference = FirebaseStorage.getInstance().getReferenceFromUrl(oldImageURL);
                     reference.delete();
-                    Toast.makeText(UpdateActivity.this, "Updated", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateActivity2.this, "Updated", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(UpdateActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateActivity2.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
-    }
+}
 

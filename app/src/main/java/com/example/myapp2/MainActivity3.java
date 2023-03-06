@@ -9,8 +9,6 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.SearchView;
-import android.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -21,22 +19,21 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-// code from https://www.youtube.com/watch?v=DWIGAkYkpg8&ab_channel=AndroidKnowledge
-public class MainActivity2 extends AppCompatActivity {
- FloatingActionButton fab;
- RecyclerView recyclerView;
- List<DataClass> dataList;
- DatabaseReference databaseReference;
- ValueEventListener eventListener;
 
+public class MainActivity3 extends AppCompatActivity {
 
-  MyAdapter2 adapter;
+    FloatingActionButton fab;
+    RecyclerView recyclerView;
+    List<DataClass2> dataList2;
+    DatabaseReference databaseReference;
+    ValueEventListener eventListener;
+
+    MyAdapter3 adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-
+        setContentView(R.layout.activity_main3);
 
         fab = findViewById(R.id.fab);
         recyclerView = findViewById(R.id.recyclerView);
@@ -44,31 +41,31 @@ public class MainActivity2 extends AppCompatActivity {
 
 
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(MainActivity2.this, 1);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(MainActivity3.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity2.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity3.this);
         builder.setCancelable(false);
         builder.setView(R.layout.progress_layout);
         AlertDialog dialog = builder.create();
         dialog.show();
 
-        dataList = new ArrayList<>();
+        dataList2 = new ArrayList<>();
 
-        adapter = new MyAdapter2(MainActivity2.this, dataList);
+        adapter = new MyAdapter3(MainActivity3.this, dataList2);
         recyclerView.setAdapter(adapter);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Android tutorials");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Android tutorials2");
         dialog.show();
 
         eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                dataList.clear();
+                dataList2.clear();
                 for (DataSnapshot itemSnapshot : snapshot.getChildren()) {
-                    DataClass dataClass = itemSnapshot.getValue(DataClass.class);
+                    DataClass2 dataClass = itemSnapshot.getValue(DataClass2.class);
                     dataClass.setKey(itemSnapshot.getKey());
-                    dataList.add(dataClass);
+                    dataList2.add(dataClass);
                 }
                 adapter.notifyDataSetChanged();
                 dialog.dismiss();
@@ -85,7 +82,7 @@ public class MainActivity2 extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity2.this, UploadActivity.class);
+                Intent intent = new Intent(MainActivity3.this, UploadActivity2.class);
                 startActivity(intent);
             }
         });

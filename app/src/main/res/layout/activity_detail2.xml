@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/blueBlack"
+    tools:context=".DetailActivtiy2">
+    <!-- code from https://www.youtube.com/watch?v=DWIGAkYkpg8&ab_channel=AndroidKnowledge  -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/detailTitle"
+        android:text="Title"
+        android:padding="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="12dp"
+        android:textColor="@color/tanAccent"
+
+        />
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:id="@+id/detailImage"
+        android:padding="8dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_baseline_fastfood_24"
+        android:scaleType="fitXY"/>
+    <TextView
+        android:id="@+id/textViewdue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="To be Completed by:"
+        android:paddingLeft="20dp"
+        android:textStyle="italic"
+        android:textColor="@color/tanAccent"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="20dp"
+        android:text="Description"
+        android:layout_gravity="center"
+        android:id="@+id/detailDesc"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/tanAccent"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            app:menu_fab_size="normal"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            app:menu_colorPressed="@color/tanAccent"
+            app:menu_colorNormal="@color/tanAccent"
+            app:menu_icon="@drawable/baseline_menu_24"
+            app:menu_openDirection="up"
+            app:menu_showShadow="true">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/recipeButton"
+                android:src="@drawable/baseline_menu_book_24"
+                app:fab_showShadow="true"
+                app:fab_colorNormal="@color/tanAccent"
+                app:fab_size="mini"/>
+            <com.github.clans.fab.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editButton"
+                android:src="@drawable/baseline_draw_24"
+                app:fab_showShadow="true"
+                app:fab_colorNormal="@color/tanAccent"
+                app:fab_size="mini"/>
+
+
+
+            <com.github.clans.fab.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/deleteButton2"
+                android:src="@drawable/baseline_delete_24"
+                app:fab_showShadow="true"
+                app:fab_colorNormal="@color/red"
+                app:fab_size="mini"/>
+
+
+
+        </com.github.clans.fab.FloatingActionMenu>
+
+        <TextView
+            android:id="@+id/textViewcom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Additional Comments:"
+            android:paddingLeft="20dp"
+            android:textStyle="italic"
+            android:textColor="@color/tanAccent"/>
+        <TextView
+            android:id="@+id/detailLang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:text="Additional Comments"
+            android:textColor="@color/tanAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+
+
+</LinearLayout>
