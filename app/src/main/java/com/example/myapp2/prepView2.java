@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class prepView2 extends AppCompatActivity implements RecyclerViewInterface{
 
     ArrayList<ListModel> listModels = new ArrayList<>();
-    int[] listImages = {R.drawable.baseline_menu_book_24,R.drawable.baseline_menu_book_24,R.drawable.baseline_menu_book_24,R.drawable.baseline_menu_book_24,R.drawable.baseline_menu_book_24,R.drawable.baseline_menu_book_24,R.drawable.baseline_menu_book_24,R.drawable.baseline_menu_book_24};
+    int[] listImages = {R.drawable.baseline_info_25,R.drawable.baseline_info_25,R.drawable.baseline_info_25,R.drawable.baseline_info_25};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

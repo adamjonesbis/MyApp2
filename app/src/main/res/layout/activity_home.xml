@@ -74,11 +74,11 @@
             android:layout_gravity="fill"
             android:layout_margin="5sp"
             android:background="@drawable/roundbutton"
-            android:drawableTop="@drawable/baseline_account_circle_26"
+            android:drawableTop="@drawable/baseline_info_24"
 
 
          android:drawablePadding="10dp"
-         android:text="Account"
+         android:text="Info"
          android:textColor="@color/tanAccent"
          android:textSize="18sp"
          android:textStyle="bold"/>

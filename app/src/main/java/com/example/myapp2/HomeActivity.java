@@ -28,7 +28,7 @@ public class HomeActivity extends AppCompatActivity {
         btn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(HomeActivity.this,addChecklist.class);
+                Intent intent=new Intent(HomeActivity.this,prepView2.class);
                 startActivity(intent);
             }
         });
@@ -49,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(HomeActivity.this,prepView2.class);
+                Intent intent=new Intent(HomeActivity.this,addChecklist.class);
                 startActivity(intent);
             }
         });

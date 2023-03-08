@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/tanAccent"
+    android:background="@color/blueBlack"
     tools:context=".UploadActivity2">
     <!-- code from https://www.youtube.com/watch?v=DWIGAkYkpg8&ab_channel=AndroidKnowledge  -->
     <androidx.cardview.widget.CardView
@@ -21,6 +21,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="center_horizontal"
+            android:background="@drawable/background2"
             android:padding="20dp"
             >
 
