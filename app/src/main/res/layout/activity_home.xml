@@ -62,7 +62,7 @@
             android:layout_margin="5sp"
             android:background="@drawable/roundbutton"
             android:drawableTop="@drawable/baseline_speaker_notes_24"
-         android:text="Notes"
+         android:text="EOD"
          android:textColor="@color/tanAccent"
          android:textSize="18sp"
          android:textStyle="bold"/>

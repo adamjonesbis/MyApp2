@@ -21,15 +21,17 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 import java.util.ArrayList;
+import java.util.jar.Attributes;
+
 //See references.txt to get see where code was taken from
 //https://www.youtube.com/watch?v=PBNnItzYf8w&ab_channel=CubixSol -prepview.java
 public class prepView extends AppCompatActivity {
 
     ListView myListView;
-    ListView myListView2;
-    RecyclerView recycleview1;
+
+
     ArrayList<String> myArrayList = new ArrayList<>();
-    ArrayList<String> myArrayList2 = new ArrayList<>();
+
     DatabaseReference mRef;
 
     @Override
@@ -72,39 +74,7 @@ public class prepView extends AppCompatActivity {
 
             }
         });
-        ArrayAdapter<String> myArrayadapter2 = new ArrayAdapter<String>(prepView.this,android.R.layout.simple_list_item_1,myArrayList2);
-        myListView2 = (ListView) findViewById(R.id.listview2);
-        myListView2.setAdapter(myArrayadapter2);
-        mRef = FirebaseDatabase.getInstance().getReference("Prep").child("Dressings");
 
-        mRef.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
-                String value=dataSnapshot.getValue().toString();
-                myArrayList.add(value);
-                myArrayadapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                myArrayadapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
     }
 }

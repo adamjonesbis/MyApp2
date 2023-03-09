@@ -49,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(HomeActivity.this,notes.class);
+                Intent intent=new Intent(HomeActivity.this,addChecklist.class);
                 startActivity(intent);
             }
         });
