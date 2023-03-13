@@ -85,7 +85,7 @@ public class DetailActivtiy2 extends AppCompatActivity {
         recipeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(DetailActivtiy2.this,prepView2.class);
+                Intent intent=new Intent(DetailActivtiy2.this,MainActivity2  .class);
                 startActivity(intent);
                 finish();
             }
